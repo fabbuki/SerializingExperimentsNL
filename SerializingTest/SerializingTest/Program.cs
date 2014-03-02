@@ -25,12 +25,8 @@ namespace SerializingTest
             Console.WriteLine("Press a key to move to next phase.");
             Console.ReadKey(); 
 
-            //de-serialize the object
-            Note noteClone; 
-            XmlSerializer xs = new XmlSerializer(typeof(Note));
-
-            using (Stream s = File.OpenRead(theURL))
-                noteClone = (Note)xs.Deserialize(s); 
+            //de-serialize the object 
+            Note noteClone = myNote.DeserializeXMLatURL(theURL); 
 
             //output the object 
             Console.WriteLine("I have de-serialized and cloned the note. This is the note's properties:");

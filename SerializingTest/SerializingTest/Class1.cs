@@ -54,6 +54,18 @@ namespace SerializingTest
             return myPath; 
         }
 
+        public Note DeserializeXMLatURL(string URL)
+        {
+            Note noteClone; 
+            XmlSerializer xs = new XmlSerializer(typeof(Note));
+
+            using (Stream s = File.OpenRead(URL))
+                noteClone = (Note)xs.Deserialize(s);
+
+            return noteClone; 
+            
+        }
+
     }
 
 }
